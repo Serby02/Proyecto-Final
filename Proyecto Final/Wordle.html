@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!------| BOOTSTRAP |---------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!------| ENLACE JQUERY |------>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!------|ENLACE CSS|----------->
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/js_trabajo_final.js"></script>
+
+    <title>Wordle GAME</title>
+</head>
+
+<body>
+    <h1>WORDLE</h1>
+    <hr>
+    <h4>Score: <span id="score"></span></h4>
+    <div class="container" >
+            <section id="word0">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <button name="ok" id="ok0" type="button" class="btn btn-success">ok</button>
+            </section>
+            <section id="word1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <button name="ok" id="ok1" type="button" class="btn btn-success">ok</button>
+            </section>
+            <section id="word2">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <button name="ok" id="ok2" type="button" class="btn btn-success">ok</button>
+            </section>
+            <section id="word3">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <button name="ok" id="ok3" type="button" class="btn btn-success">ok</button>
+            </section>
+            <section id="word4">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <button name="ok" id="ok4" type="button" class="btn btn-success">ok</button>
+            </section>
+            <section id="word5">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <input class="word" name="word" type="text" maxlength="1" minlength="1" size="1">
+                <button name="ok" id="ok5" type="button" class="btn btn-success">ok</button>
+            </section>
+    </div>
+
+    <!--FUNCIONES-->
+<!--para lo de los tabuladores-->
+<script>
+$(document).ready(function(){
+    palabrarandom();
+    $('.word').keyup( function(){
+        $(this).next().focus();
+    });
+
+    ocultar();
+
+    $('[name="ok"]').click( function(){
+        capturarPalabra();
+        if(haGanado()){
+            alert('Has ganado');
+        }
+        else{
+            comprobar();
+            mostrar($(this));
+        }
+        
+    });
+});
+
+</script>
+
+</body>
+
+</html>
